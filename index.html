@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Psychic Game</title>
+  
+  
+   
+</head>
+<body>
+
+<div id="game">
+    <h1>The Psychic Game</h1>
+</div>
+
+<script type="text/javascript">
+    
+var options = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var wins = 0;
+var losses = 0;
+var guessesleft = 9;
+var guessedLetters = [];
+
+
+
+document.onkeyup = function() {
+    var userguess = String.fromCharCode(event.keyCode).
+        toLowerCase();
+
+    console.log(userguess);
+
+
+var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+    console.log(computerGuess);
+
+if (userguess===computerGuess) {
+    wins++;
+    alert("You are psychic!!!!! or maybe you guessed it through certain laws of probability.");
+}
+
+if (wins === true) {
+    guessesleft = 9;
+}
+
+if (userguess !== computerGuess) {
+    guessesleft--;
+}
+
+if (guessesleft === 0) {
+    losses++;
+}
+
+if (guessesleft === 0){
+    guessesleft = 9; 
+}
+
+ 
+// if (guessesleft === 0) {
+   // guessedLetters === "";
+//}
+
+
+
+
+
+
+// for(var idx = 0; idx < guessedLetters.length; idx++){
+//     html += guessedLetters[idx];
+//  }
+ 
+ guessedLetters.push(userguess);
+
+
+
+
+
+// How to limit the amount of guesses to 9, a for loop?
+
+// push, loop,html
+
+    
+   var html = "<h1>The Psychic Game</h1>" + 
+   "<p>Wins: " + wins + "</p>" +
+   "<p>Losses: " + losses +"</p>" +
+   "<p>Guesses left: " + guessesleft + "</p>" +
+    "<p>Your Choices: " + guessedLetters + "</p>"
+    
+
+   document.querySelector('#game').innerHTML = html;
+   
+
+}
+
+
+
+
+
+ </script>
+    
+</body>
+</html>
